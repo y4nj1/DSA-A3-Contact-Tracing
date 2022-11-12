@@ -16,6 +16,41 @@
 
 # =================== CODE PROPER =========================
 # [1] Display Menu
+def menu():
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print()
+    print(' '*4 + "Yanji's Contact Tracing Directory")
+    print()
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print()
+    print("=========================================")
+    print(' '*6 + "||       MAIN MENU          ||")
+    print("=========================================")
+    print(' '*6 + "||   [1] Add an Entry       ||")
+    print(' '*6 + "||   [2] Search an Entry    ||")
+    print(' '*6 + "||   [3] Exit               ||")
+    print("=========================================")
+
+def main_menu():
+    menu()
+    while True:
+        userPick = int(input("Pick a Function (1-3): "))
+            
+        if userPick == 1:
+            user_add_entry()
+            break
+
+        if userPick == 2:
+            user_find_entry()
+            break
+            
+        if userPick == 3:
+            print("Thank you for opening Yanji's Contact Tracing Directory!")
+            break
+
+        print("Error! Invalid input. Press any key to continue...\n")
+
+main_menu()
 # [2] Initialize Dictionary: Contacts
 # [3] Ask User Entry
 # [4] Store User Input
