@@ -62,13 +62,37 @@ def user_add_entry():
     name = input("Full Name: ")
 # [4] Store User Input
     contacts[name] = {}
-    contacts[name]["Age"] = int(input("Age: "))
-    contacts[name]["Address"] = input("Address: ")
-    contacts[name]["Phone"] = int(input("Phone Number: "))
+    contacts[name]['Age'] = (input("Age: "))
+    contacts[name]['Address'] = input("Address: ")
+    contacts[name]['Phone'] = (input("Phone Number: "))
 
     print("Contact Saved!")
-# [5] Recall User Input
+    main_menu()
+
+# [5] Recall User Input        
+def user_find_entry():
+    print("=========================================")
+    print(' '*6 + "||       FIND AN ENTRY      ||")
+    print("=========================================")
+    print()
+
+    while True:
+        name = input("Full Name: ")
+        
 # [6] Print User Input
+        if name in contacts.keys():      #Contact Exists  
+            for name, name_info in contacts.items():
+                print("Age: "+name_info['Age'])
+                print("Address: "+name_info['Address'])
+                print("Phone Number: "+name_info['Phone'])
+                print()
+                print("=========================================")
+                main_menu()
+        else:     # Contact does not exist
+            print("This contact does not exist in the directory.")
+            print()
+            print("=========================================")
+
 # [7] Prompt User: Exit or Retry
 
 main_menu()
