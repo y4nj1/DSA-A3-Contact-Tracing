@@ -50,10 +50,25 @@ def main_menu():
 
         print("Error! Invalid input. Press any key to continue...\n")
 
-main_menu()
 # [2] Initialize Dictionary: Contacts
+contacts = {}
 # [3] Ask User Entry
+def user_add_entry():
+    print("=========================================")
+    print(' '*6 + "||       ADD AN ENTRY       ||")
+    print("=========================================")
+    print()
+
+    name = input("Full Name: ")
 # [4] Store User Input
+    contacts[name] = {}
+    contacts[name]["Age"] = int(input("Age: "))
+    contacts[name]["Address"] = input("Address: ")
+    contacts[name]["Phone"] = int(input("Phone Number: "))
+
+    print("Contact Saved!")
 # [5] Recall User Input
 # [6] Print User Input
 # [7] Prompt User: Exit or Retry
+
+main_menu()
