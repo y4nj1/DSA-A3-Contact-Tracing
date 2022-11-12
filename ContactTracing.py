@@ -44,11 +44,18 @@ def main_menu():
             user_find_entry()
             break
             
+        # [7] Prompt User: Exit
         if userPick == 3:
-            print("Thank you for opening Yanji's Contact Tracing Directory!")
-            break
-
-        print("Error! Invalid input. Press any key to continue...\n")
+            choice = input("Are you sure? (y/n): ")
+            
+            if choice == "y":
+                print("Thank you for opening Yanji's Contact Tracing Directory!")
+                break
+            else:
+                menu()
+        
+        else:
+            print("Error! Invalid input. Press any key to continue...\n")
 
 # [2] Initialize Dictionary: Contacts
 contacts = {}
@@ -93,6 +100,5 @@ def user_find_entry():
             print()
             print("=========================================")
 
-# [7] Prompt User: Exit or Retry
 
 main_menu()
