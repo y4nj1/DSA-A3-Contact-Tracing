@@ -50,7 +50,7 @@ def main_menu():
             
             if choice == "y":
                 print("Thank you for opening Yanji's Contact Tracing Directory!")
-                break
+                exit()
             else:
                 menu()
         
@@ -58,7 +58,12 @@ def main_menu():
             print("Error! Invalid input. Press any key to continue...\n")
 
 # [2] Initialize Dictionary: Contacts
-contacts = {}
+contacts = {
+    'John Doe':{'Age':'23', 'Address':'Manila', 'Phone':'09233456887'},
+    'Sharon Lesley':{'Age':'22', 'Address':'Davao City', 'Phone':'09758832415'},
+    'Arthur Gabriel':{'Age':'19', 'Address':'Quezon City', 'Phone':'09233456887'},
+    'Shane Tyson':{'Age':'24', 'Address':'Cebu City', 'Phone':'09233456887'}
+}
 # [3] Ask User Entry
 def user_add_entry():
     print("=========================================")
@@ -68,10 +73,11 @@ def user_add_entry():
 
     name = input("Full Name: ")
 # [4] Store User Input
-    contacts[name] = {}
-    contacts[name]['Age'] = (input("Age: "))
-    contacts[name]['Address'] = input("Address: ")
-    contacts[name]['Phone'] = (input("Phone Number: "))
+    name = {}
+    name['Age'] = (input("Age: "))
+    name['Address'] = input("Address: ")
+    name['Phone'] = (input("Phone Number: "))
+    contacts.update(name)
 
     print("Contact Saved!")
     main_menu()
@@ -84,14 +90,15 @@ def user_find_entry():
     print()
 
     while True:
-        name = input("Full Name: ")
+        userFind = input("Full Name: ")
         
 # [6] Print User Input
-        if name in contacts.keys():      #Contact Exists  
-            for name, name_info in contacts.items():
-                print("Age: "+name_info['Age'])
-                print("Address: "+name_info['Address'])
-                print("Phone Number: "+name_info['Phone'])
+        if userFind in contacts.keys():      #Contact Exists 
+            findname = contacts.get(userFind)
+            for info in findname, contacts:
+                print("Age: "+ info['Age'])
+                print("Address: "+info['Address'])
+                print("Phone Number: "+info['Phone'])
                 print()
                 print("=========================================")
                 main_menu()
